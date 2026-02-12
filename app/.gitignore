@@ -1,1 +1,46 @@
-/build
+# Gradle
+.gradle/
+build/
+**/build/
+
+# Local configuration
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+
+# Keystore files
+*.jks
+*.keystore
+
+# Generated files
+captures/
+.externalNativeBuild/
+.cxx/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Kotlin
+.kotlin/
+
+# Android Studio Navigation editor temp files
+.navigation/
+
+# Google Services (optional – nur falls du später Firebase nutzt)
+google-services.json
+
+# IntelliJ workspace files
+workspace.xml
+tasks.xml
+usage.statistics.xml
+dictionaries/
+
+# Mac
+*.swp
+*.swo
