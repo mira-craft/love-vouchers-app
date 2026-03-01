@@ -5,5 +5,5 @@ data class Voucher(
     val title: String,
     val description: String,
     val type: VoucherType,
-    var isRedeemed: Boolean = false
+    val isRedeemed: Boolean = false
 )

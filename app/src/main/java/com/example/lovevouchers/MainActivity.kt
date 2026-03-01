@@ -46,16 +46,7 @@ fun LoveVouchersApp() {
     var voucherToRedeem by remember { mutableStateOf<Voucher?>(null) }
     var selectedFilter by remember { mutableStateOf<VoucherType?>(null) }
 
-    // 🔥 Redeemed State laden
-    LaunchedEffect(Unit) {
-        vouchers.forEach { voucher ->
-            scope.launch {
-                dataStore.isVoucherRedeemed(voucher.id).collect { redeemed ->
-                    voucher.isRedeemed = redeemed
-                }
-            }
-        }
-    }
+
 
     Scaffold(
         containerColor = Color.White
@@ -122,19 +113,31 @@ fun LoveVouchersApp() {
                     textAlign = TextAlign.Start
                 )
             },
+
+
             confirmButton = {
                 TextButton(
                     onClick = {
+
+                        // <-- UI SOFORT aktualisieren
+                        vouchers = vouchers.map {
+                            if (it.id == voucher.id)
+                                it.copy(isRedeemed = true)
+                            else it
+                        }
+
+                        voucherToRedeem = null   // <-- Dialog schließen
+
+                        // <-- Persistenz im Hintergrund
                         scope.launch {
                             dataStore.setVoucherRedeemed(voucher.id)
-                            voucher.isRedeemed = true
                         }
-                        voucherToRedeem = null
                     }
                 ) {
                     Text("Confirm")
                 }
             },
+
             dismissButton = {
                 TextButton(
                     onClick = { voucherToRedeem = null }
