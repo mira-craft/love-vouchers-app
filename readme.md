@@ -49,7 +49,9 @@ A dual color system subtly reinforces this distinction while maintaining a calm,
 
 
 ## 🎨 Screenshot
-
+<p align="center">
+  <img src="assets/lovevouchers.webp" width="300">
+</p>
 ---
 
 ## 🧩 Edge Cases
